@@ -1,0 +1,45 @@
+
+    <!--망고 팩컨테이너-->
+    <div id = "pack-container" class="row">
+        <div class="col-xs-12 col-sm-4" style="margin-top:4px"> <!--컨텐츠 박스 1 -->
+            <div class="pack-contents"> 
+                <div class="pack-top-area">
+                    <img id = "pack-img" src= "<%= post.post_image %>" >
+                    <h4><%= post.post_company %> </h4>
+                    <p><%= post.post_subject %></p> 
+                    <ul class="list-inline pack-icon">
+                        <li><i class="fa fa-twitter"></i><%= post.post_category %></li>
+                        <li><i class="fa fa-calendar"><%= post.post_deadline %></i>
+                        </li>
+                        <li><i class="fa fa-heart">관심 X 명</i>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="pack-middle-area"> <!--호출된 컨텐츠-->
+                    <div class="ellipsis middle-content">
+                        <p><%= post.post_content %></p>
+                    </div>
+                    <div class="pack-middle-hash"> <!--호출된 해시태그 --> 
+                        <ul class="list-inline">
+                            <li><a class="hash-button-small"> #Line</a></li>
+                            <li><a class="hash-button-small"> #마케팅</a></li>
+                            <li><a class="hash-button-small"> #게임</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="pack-bottom-area ">
+                    <a href="#">
+                        <i class="fa fa-thumb-tack font-light-black" style="padding-top:7px" > 달력에 콕콕  </i> 
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div> <!--망고 팩 컨테이너 끝-->
+    
+    

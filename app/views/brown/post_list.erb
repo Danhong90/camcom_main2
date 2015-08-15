@@ -1,0 +1,9 @@
+<a href=/brown/newpost>관리페이지로 </a><br>
+<a href=/brown/hash_list>해쉬삭제페이지로</a>
+<br><br><hr>
+
+<% @posts.each do |post| %>
+<h5><%=post.id%>/<%= post.post_company %> // <%= post.post_subject %> // <%= post.post_deadline %>//가진해쉬들<%= post.posthashrels.pluck(:campushash_id)%><a href="/brown/post_list/<%=post.id%>"><button type=submit name=post.id value="<%=post.id%>" onclick="return confirm('Are you sure?')">삭제</button></a>  </h5>
+<hr>
+
+<% end %>

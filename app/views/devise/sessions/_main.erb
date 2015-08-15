@@ -1,0 +1,38 @@
+
+<!--탑 네비게이션 -->
+<%= render :partial => "/brown/top_nav" %>
+
+<style>
+
+
+</style>
+
+
+
+<!-- login modal content-->
+<%= render partial: "/brown/login_modal"%>
+<%= render partial: "/brown/signup" %>
+
+
+
+
+<!--login end-->
+<!--바디-->
+<div id="whole-body">
+    <div id= "whole-body-contents">
+        <!--광고판 -->        
+        <%= render :partial => "/brown/body_carousel", locals:{topfive:@topfive} %>
+        <!--컨텐츠 -->
+        <%= render :partial => "/brown/body_content", locals:{usermango:@usermango, usermelon:@usermelon} %>
+        <%= render :partial => "/brown/post_modal", locals:{post:@posts} %>
+    </div> <!--whole-body-contents 끝-->
+</div> <!--whole-body 끝 -->
+
+<!--fotter-->
+<%= render :partial => "/brown/footer" %>
+     
+     
+<!--자바스크립트 -->
+ 
+
+

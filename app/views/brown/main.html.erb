@@ -1,0 +1,57 @@
+
+<!--탑 네비게이션 -->
+<%= render :partial => "/brown/top_nav" %>
+
+<!--사이즈 메뉴 -->
+<%= render :partial => "/brown/side_menu" %>
+
+
+
+<!-- login modal content-->
+<%= render partial: "/brown/login_modal"%>
+
+<!-- 로그인이 안돼있으면 로그인창 강제 -->
+
+<% if current_user.nil? %>
+<script>
+if (isMobile === true){                        //모바일인지 확인
+$(document).ready(function () {
+
+    $("#login").modal({backdrop: 'static', keyboard: false});
+
+});}
+
+</script>
+<% elsif current_user.userhashrels.empty? %>
+<%= render partial: "/brown/select_hash", locals:{hash:@hash}%>
+
+<script>
+$(document).ready(function () {
+
+    $("#nohash").modal({backdrop: 'static', keyboard: false});
+
+});
+</script>
+
+<% end %>
+<%= render partial: "/brown/signup" %>
+
+
+
+<!--login end-->
+<!--바디-->
+<div id="whole-body">
+    <div id= "whole-body-contents">
+        <!--광고판 -->        
+        <%= render :partial => "/brown/body_carousel", locals:{topfive:@topfive} %>
+        <!--컨텐츠 -->
+        <%= render :partial => "/brown/body_content", locals:{usermango:@usermango, usermelon:@usermelon} %>
+        <%= render :partial => "/brown/post_modal", locals:{post:@posts} %>
+    </div> <!--whole-body-contents 끝-->
+</div> <!--whole-body 끝 -->
+
+<!--fotter-->
+<%= render :partial => "/brown/footer" %>
+     
+
+

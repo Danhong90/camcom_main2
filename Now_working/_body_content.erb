@@ -1,0 +1,134 @@
+<div id = "whole-contents">
+        
+    
+    <!--망고/멜로 선택 탭 -->
+    <div class="btn-group btn-group-justified mango-mellon-tab"  role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default btn-mango">망고</button>
+      </div>
+      <div class="btn-group yellow" role="group">
+        <button type="button" class="btn btn-default btn-melon">멜론</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          카테고리
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-justified">
+          <li><a href="#">인턴</a></li>
+          <li><a href="#">공모전</a></li>
+          <li><a href="#">대외활동</a></li>
+          <li><a href="#">강연</a></li>
+          <li><a href="#">동아리</a></li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <!--망고 컨텐츠 제목 -->
+    <div id = "contents-head" style="text-align:center">
+            <br>
+        <div class="yellow contents-headline-block" > 망고 </div> 
+        <h4 style="display:inline-block">  정글에서 구해온, 당신을 위한 망고들!</h4>
+        <hr style="border: 1px solid rgb(255,204,41); margin-top:2px;">
+    </div>
+    
+    <% @posts.each do |post| %>
+    <!--망고 팩컨테이너-->
+    <div id = "pack-container" class="row">
+        <div class="col-xs-12 col-sm-4" style="margin-top:4px"> <!--컨텐츠 박스 1 -->
+            <div class="pack-contents"> 
+                <div class="pack-top-area">
+                    <img id = "pack-img" src= "http://cfile30.uf.tistory.com/image/15186150513548541FF869" -->
+                    <h4>네이버 라인 플러스 </h4>
+                    <p>게임 기획/개발 인턴  </p> 
+                    <ul class="list-inline pack-icon">
+                        <li><i class="fa fa-twitter"></i>종류 호출</li>
+                        <li><i class="fa fa-calendar">기간 호출 </i>
+                        </li>
+                        <li><i class="fa fa-heart">관심 X 명</i>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="pack-middle-area"> <!--호출된 컨텐츠-->
+                    <div class="ellipsis middle-content">
+                        <p>BAIN & COMPANY Seoul Office에서 아래와 같이 정기적으로 
+                        Research Assistant를 채용합니다. BAIN & COMPANY Seoul Office에서
+                        아래와 같이 정기적으로 Research Assistant를 채용합니다. BAIN & COMPANY Seoul Office에서 아래와 같이 정기적으로 
+                        Research Assistant를 채용합니다. BAIN & COMPANY Seoul Office에서
+                        아래와 같이 정기적으로 Research Assistant를 채용합니다.</p>
+                    </div>
+                    <div class="pack-middle-hash"> <!--호출된 해시태그 --> 
+                        <ul class="list-inline">
+                            <li><a class="hash-button-small"> #Line</a></li>
+                            <li><a class="hash-button-small"> #마케팅</a></li>
+                            <li><a class="hash-button-small"> #게임</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="pack-bottom-area ">
+                    <a href="#">
+                        <i class="fa fa-thumb-tack font-light-black" style="padding-top:7px" > 달력에 콕콕  </i> 
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div> <!--망고 팩 컨테이너 끝-->
+    <% end %>
+    
+    <!--멜론 컨텐츠 제목 -->
+    <div id = "contents-head" style="text-align:center">
+            <br>
+        <div class="green contents-headline-block" style="color:white" > 멜론 </div> 
+        <h4 style="display:inline-block;">  망고 다음으로 소중한 정보들!</h4>
+        <hr style="border: 1px solid rgb(65,180,123); margin-top:2px;">
+    </div>
+    
+    
+    <!--멜론 팩컨테이너  (멜론)-->
+    
+    <div id = "pack-container" class="row">
+        <div class="col-xs-12 col-sm-4" style="margin-top:20px">
+            <div class="pack-contents">
+                <div class="pack-top-area">
+                    <img id = "pack-img" src= "http://cfile30.uf.tistory.com/image/15186150513548541FF869" -->
+                    <p>기업이름 호출 </p>
+                    <p>공고 설명 호출 </p> 
+                    <ul class="list-inline pack-icon">
+                        <li><i class="fa fa-twitter"></i>종류 호출</li>
+                        <li><i class="fa fa-calendar">기간 호출 </i>
+                        </li>
+                        <li><i class="fa fa-heart">관심 X 명</i>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="pack-middle-area"> <!--호출된 컨텐츠-->
+                    <p>BAIN & COMPANY Seoul Office에서 아래와 같이 정기적으로 
+                    Research Assistant를 채용합니다. BAIN & COMPANY Seoul Office에서
+                    아래와 같이 정기적으로 Research Assistant를 채용합니다. </p>
+                    
+                    <div class="pack-middle-hash"> <!--호출된 해시태그 --> 
+                        <ul class="list-inline">
+                            <li><a class="hash-button-small"> #Line</a></li>
+                            <li><a class="hash-button-small"> #마케팅</a></li>
+                            <li><a class="hash-button-small"> #게임</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="#">
+                    <div class="pack-bottom-area">
+                    <i class="fa fa-thumb-tack" > </i> 달력에 콕콕 
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> <!--멜론 팩 컨테이너 끝-->
+</div> <!--컨텐츠 끝-->

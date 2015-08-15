@@ -1,0 +1,39 @@
+
+<div class="modal fade" id="nohash" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  
+  
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Select Hash</h4>
+      </div>
+      <div class="modal-body" style="height:80">
+        
+          <!--<form action=/wall/login method=post id=loginform>-->
+          
+
+              <div class="form-group">
+                 <% hash.each do |hash| %>
+                 <a class="hash-button-small" name="<%=hash.id%>hash" onclick="pickhash(<%=hash.id%>)" id="selected"> <%= hash.hash_content%> </a>
+                 <% end %>   
+              </div>
+             
+          
+         
+         
+      </div>
+      <div class="modal-footer" style=" text-align:center;">
+        <a href="/"<i class="fa fa-thumb-tack font-light-black" style="padding-top:7px;" > 해쉬태그로 모아보기  </i></a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+if (window.location.hash == "#nohash") {
+     $("#nohash").modal('show');
+}
+
+
+</script>

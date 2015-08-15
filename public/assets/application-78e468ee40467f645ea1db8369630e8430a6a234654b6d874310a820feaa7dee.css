@@ -1,0 +1,654 @@
+
+/*바디 */
+
+
+
+/*색 팔레트 */
+
+.blue {
+    background-color: rgba(37,175,251,1);
+}
+
+.font-blue {
+    color: rgba(37,175,251,1);
+}
+
+.green {
+    background-color: rgb(65,180,123);
+}
+
+.font-green {
+    color: rgb(65,180,123);
+}
+
+.yellow {
+    background-color: rgb(255,204,41);
+}
+
+.font-yellow {
+    color: rgb(255,204,41);
+}
+
+.font-white {
+    color: #fff;
+}
+
+.light-grey {
+    background-color :rgb(237,239,241);
+}
+
+.dark-grey {
+    background-color : rgb(228,230,234);
+}
+
+.font-light-black {
+    color: rgb(30,71,101);
+}
+
+
+
+
+/*위치 관련*/
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ellipsis { /*말줄임표*/
+    width: 100%;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: normal !important;
+    display: block;
+}
+
+.same-row {
+    display:inline-block;
+}
+
+
+
+/*버튼 관련 */
+.hash-button-small {
+    border-radius:20px;
+    padding-left :8px ;
+    padding-right :8px ;
+    padding-top :4px ;
+    padding-bottom :4px ;
+    margin-left:2px;
+    margin-right:2px;
+    border:solid 1px rgb(65,180,123);
+    color:rgb(65,180,123);
+}
+
+.mango-mellon-tab {
+   
+    padding-top:10px;
+    padding-bottom: 10px
+}
+
+.btn-mango {
+    background-image: linear-gradient(to bottom, rgb(255,204,41) 0,rgb(255,204,41) 100%);
+    text-shadow: none;
+
+}
+
+.btn-melon {
+    background-image: linear-gradient(to bottom, rgb(65,180,123) 0, rgb(65,180,123) 100%);
+    text-shadow: none;
+    color:white;
+}
+
+
+
+/*네비 */
+
+.navbar-default {
+    border-color: rgba(34,34,34,.05);
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    background-color: #fff;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+.navbar-default .navbar-collapse {
+    background-color:rgb(65,180,123);
+}
+
+.navbar-default .navbar-header .navbar-brand {
+    text-transform: uppercase;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background-color:rgb(65,180,123)
+}
+
+.navbar-header {
+    background-color:rgb(65,180,123);
+    width:600px;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: rgb(255,204,41);
+}
+
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+
+.navbar-form {
+    display:inline-block;
+    border: 0px;
+    padding-top:2px; 
+    padding-bottom:2px;
+    width:350px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.form-group .form-control {
+    
+    width:250px;
+    height:32px;
+    display:inline-block;
+}
+  
+
+
+
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+    color: #fff;
+}
+
+.navbar-default .nav > li>a,
+.navbar-default .nav>li>a:focus {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    color: #222;
+}
+
+.navbar-default .nav > li>a:hover,
+.navbar-default .nav>li>a:focus:hover {
+    color: #f05f40;
+}
+
+.navbar-default .nav > li.active>a,
+.navbar-default .nav>li.active>a:focus {
+    color: #f05f40!important;
+    background-color: transparent;
+}
+
+.navbar-default .nav > li.active>a:hover,
+.navbar-default .nav>li.active>a:focus:hover {
+    background-color: transparent;
+}
+
+@media(min-width:768px) {
+    .navbar-default {
+        border-color: rgba(255,255,255,.3);
+        background-color: transparent;
+    }
+
+    .navbar-default .navbar-header .navbar-brand {
+        color: rgba(255,255,255,.7);
+    }
+
+    .navbar-default .navbar-header .navbar-brand:hover,
+    .navbar-default .navbar-header .navbar-brand:focus {
+        color: #fff;
+    }
+
+    .navbar-default .nav > li>a,
+    .navbar-default .nav>li>a:focus {
+        color: rgba(255,255,255,.7);
+    }
+
+    .navbar-default .nav > li>a:hover,
+    .navbar-default .nav>li>a:focus:hover {
+        color: #fff;
+    }
+
+    .navbar-default.affix {
+        border-color: rgba(34,34,34,.05);
+        background-color: #fff;
+    }
+
+    .navbar-default.affix .navbar-header .navbar-brand {
+        font-size: 14px;
+        color: #f05f40;
+    }
+
+    .navbar-default.affix .navbar-header .navbar-brand:hover,
+    .navbar-default.affix .navbar-header .navbar-brand:focus {
+        color: #eb3812;
+    }
+
+    .navbar-default.affix .nav > li>a,
+    .navbar-default.affix .nav>li>a:focus {
+        color: #222;
+    }
+
+    .navbar-default.affix .nav > li>a:hover,
+    .navbar-default.affix .nav>li>a:focus:hover {
+        color: #f05f40;
+    }
+    
+    #small-menu {
+        display:none;
+    }
+    
+}
+
+@media only screen and (max-width: 767px) {
+		#introduction {
+			display: none;
+		}
+		
+		footer {
+		    padding:0px;
+		}
+		
+		.navbar-default .navbar-header .navbar-brand {
+		    display: none;
+		}
+		
+		.navbar-header {
+		    width:100vw;
+		}
+		
+		.navbar-toggle {
+		    margin-right:5px;
+		    display:inline-block;
+		}
+        
+        .navbar-form {
+            display:inline-block;
+            border: 0px;
+            padding-top:2px; 
+            padding-bottom:2px;
+            padding-right:0px;
+            padding-left:5px;
+            width:82%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        
+        .navbar-form .form-group {
+            width:85%;
+            display:inline-block;
+            margin-bottom:0px;
+        }
+		
+		#small-input {
+            width:100%;
+            height:32px;
+            display:inline-block;
+            margin-left:2px;
+        }
+}
+
+
+
+
+.whole-body , .ad-bar , .whole-contents {
+    position : relative;
+}
+
+
+/*바디 */
+
+#whole-body {
+    background-color: rgb(237,239,241);
+}
+
+#whole-body-contents {
+    margin-left:10vw;
+    margin-right:10vw;
+    padding-bottom:2vh;
+}
+
+
+
+    /*광고판*/
+    
+    
+    .carousel-caption {
+        text-align:center;
+        text-shadow: none;
+        color:rgb(65,180,123);;
+    }
+    
+    .carousel-indicators .active {
+        background-color: rgb(65,180,123);
+    }
+    
+    .carousel-backgrond {
+       height:500px;
+       
+    }
+    
+    /*관련 해시태그 추천*/
+    .SearchGuidesBar {
+        background-color:  rgb(228,230,234);
+    }
+    
+    .SearchGuidesBar .guidesWrapper {
+    background-color:  rgb(228,230,234);
+    -webkit-box-shadow: 0 1px #f4f4f4;
+    box-shadow: 0 1px #f4f4f4;
+    height: 85px;
+    overflow: hidden;
+    position: relative;
+    }
+    
+    .centeredWithinWrapper {
+        margin: 0 4% auto;
+    }
+    
+    SearchGuidesBar .guidesWrapper .guidesSlider {
+        height: 120px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    
+    .SearchGuidesBar .guidesWrapper .guidesSlider .guidesContainer {
+        height: 85px;
+        overflow: hidden;
+        padding: 0 7px;
+        position: relative;
+    }
+    
+    .SearchGuidesBar .guidesWrapper .guidesSlider .guidesContainer li {
+        float: left;
+        width: 125px;
+        margin: 15px 0;
+        display: list-item;
+    }
+
+    .guidesContainer li {
+        list-style: none;
+        padding: 0;
+    }
+    
+  
+   
+    .SearchGuidesBar .guidesWrapper .guidesSlider .guidesContainer .guideContainer {
+        cursor: pointer;
+        min-width: 111px;
+    }
+    
+    .SearchGuidesBar .guidesWrapper .guidesSlider .guidesContainer .guideContainer .guideImgMask {
+        border-radius: 25px;
+        -webkit-box-shadow: inset 0 0 2px rgba(255,255,255,0.33);
+        box-shadow: inset 0 0 2px rgba(255,255,255,0.33);
+        height: 55px;
+        position: absolute;
+        width: 111px;
+    }
+    
+    .SearchGuidesBar .guidesWrapper .guidesSlider .guidesContainer .guideContainer .guideImg {
+        border-radius: 25px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+        height: 55px;
+        min-width: 111px;
+    }
+    
+    img {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        vertical-align: middle;
+        border: 0;
+        -ms-interpolation-mode: bicubic;
+    }
+    
+    /*이미지 내 텍스트*/
+    .SearchGuidesBar .guidesWrapper .guidesSlider .guidesContainer .guideContainer .guideText {
+        color: #fff;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 16px;
+        margin-left: -112px;
+        text-align: center;
+        text-shadow: 0 -1px rgba(0,0,0,0.15);
+        vertical-align: middle;
+        width: 107px;
+        word-wrap: break-word;
+    }
+    
+    /*관련해시태그 네비게이터*/
+    SearchGuidesBar .guidesWrapper .navigator.left {
+       /* background-image: -webkit-gradient(linear, right top, left top, from(transparent), color-stop(90%,  rgb(228,230,234)));
+        background-image: -webkit-linear-gradient(right, transparent 0%,  rgb(228,230,234) 90%);
+        background-image: linear-gradient(to left, transparent 0%,  rgb(228,230,234) 90%);*/
+        left: 0;
+    }
+    
+    .SearchGuidesBar .guidesWrapper .navigator.right {
+       /* background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(90%,  rgb(228,230,234)));
+        background-image: -webkit-linear-gradient(left, transparent 0%,  rgb(228,230,234) 90%);
+        background-image: linear-gradient(to right, transparent 0%,  rgb(228,230,234) 90%);*/
+        right: 0;
+        text-align: right;
+    }
+    
+    .SearchGuidesBar .guidesWrapper .navigator {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        display: none;
+        height: 85px;
+        position: absolute;
+        top: 0; 
+        vertical-align: middle;
+        width: 185px;
+    }
+    
+    /*카테고리탐색*/
+    .SearchScopeBar {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    .SearchScopeBar .navScopeBtn {
+        border-right: 0;
+        color: #333;
+        font-size: 12px;
+        font-weight: 500;
+        margin-right: -4px;
+        min-width: 115px;
+        display: inline-block;
+    }
+    
+    .Button.btn { 
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f0f0f0));
+        background: -webkit-linear-gradient(#fff, #f0f0f0);
+        background: linear-gradient(#fff, #f0f0f0);
+        border: 1px solid #ccc;
+        color: #5f5f5f;
+        cursor: pointer;
+        font-weight: bold;
+        text-shadow: 0 1px #fff;
+        white-space: nowrap;
+        background-color: #f0f0f0;
+        padding: 7px 13px;
+    }
+    
+    .Button {
+        outline: none;
+        position: relative;
+    }
+    
+    .SearchScopeBar {
+        margin:0px;
+        padding-top:10px;
+  
+    }
+    
+    .SearchScopeBar .navScopeBtn.rightRounded {
+        border-right: 1px solid #ccc;
+    }
+    
+    .SearchScopeBar .leftRounded {
+        border-radius: 6px 0 0 6px;
+    }
+    
+    
+/*_body_content */
+
+    /*컨텐츠 헤드라인 */
+    .contents-headline-block {
+        text-align:center; 
+        width:50px; 
+        border-radius:3px;
+        display:inline-block;
+        font-size:20px; 
+        font-weight:700;
+    }
+    
+    .search-headline-block {
+        text-align:center; 
+        width:120px; 
+        border-radius:3px;
+        display:inline-block;
+        font-size:20px; 
+        font-weight:700; 
+    }
+    
+    
+    /*컨텐츠 팩 */
+    
+    .pack-contents {
+        background-color:white;
+        border-radius:2px;
+        color: rgb(30,71,101);
+        text-align:center;
+        height:500px;
+        padding:10px;
+        position: relative;
+        margin-bottom:15px;
+      
+    }
+    
+    .pack-top-area {
+        margin-bottom:10px;
+    }
+    
+    .pack-top-area p {
+        margin-top:15px;
+        margin-bottom:15px;
+    }
+    
+    #pack-img {
+        
+        height:100px;
+    }
+    
+    .pack-middle-area {
+        border-top: solid 1px #222;
+        padding-top:10px;
+        padding-bottom:5px;
+        padding-left:10px;
+        padding-right:10px;
+     
+        height:200px;
+    }
+    
+    .middle-content {
+        color: rgb(30,71,101);
+        height:100%;
+    }
+    
+    
+    .pack-middle-hash {
+        margin-top:20px;
+        margin-bottom:10px;
+        position: absolute;
+        width:100%;
+        right:0;
+        bottom:9%;
+    }
+    
+    .pack-bottom-area {
+        background-color:rgb(246,250,251);
+        padding: 4px;
+        margin-top:5px;
+        color: rgb(64,64,64);
+        text-decoration:none;
+        height: 40px;
+        width: 100%;
+        position: absolute;
+        right:0;
+        bottom:0;
+        
+    }
+    
+    .pack-img {
+        c : pink;
+        
+    }
+
+
+
+/*푸터 */
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+}
+
+footer span.copyright {
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+}
+
+footer ul.quicklinks {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+}
+
+ul.social-buttons {
+    margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: #fff;
+    background-color: rgb(65,180,123);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+    background-color: rgb(255,204,41);
+}
+

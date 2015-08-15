@@ -1,0 +1,84 @@
+<!-- modal call-->
+
+
+
+
+<div id = "whole-contents" class="container-fluid">
+        
+    
+    <!--망고/멜로 선택 탭 -->
+    <div id="small-category"  class="btn-group btn-group-justified mango-melon-tab"  role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default btn-mango">망고</button>
+      </div>
+      <div class="btn-group yellow" role="group">
+        <button type="button" class="btn btn-default btn-melon">멜론</button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          카테고리
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-justified">
+          <li><a href="#">인턴</a></li>
+          <li><a href="#">공모전</a></li>
+          <li><a href="#">대외활동</a></li>
+          <li><a href="#">강연</a></li>
+          <li><a href="#">동아리</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!--망고 컨텐츠 제목 -->
+    <div id = "contents-head" style="text-align:center">
+            <br>
+        <div class="yellow contents-headline-block" > 망고 </div> 
+        <h4 style="display:inline-block">  정글에서 구해온, 당신을 위한 망고들!</h4>
+        <hr style="border: 1px solid rgb(255,204,41); margin-top:2px;">
+    </div>
+    <div id = "pack-container" class="row">
+    <% if !current_user.nil? %>
+      <% postlist = Postuserrel.where.not(mango: 0).where("user_id=?",current_user.id).order(mango: :desc).pluck(:post_id) %>
+    <% else %>
+      <% postlist = Post.pluck(:id) %>
+    <% end %>
+    <% postlist.each do |x| %>
+        <% post = Post.find(x) %>
+        <%= render partial: '/brown/inner_content', locals: {post: post} %>
+      <% end %>
+    </div>
+    <!--멜론 컨텐츠 제목 -->
+    <div id = "contents-head" style="text-align:center">
+            <br>
+        <div class="green contents-headline-block" style="color:white" > 멜론 </div> 
+        <h4 style="display:inline-block;">  망고 다음으로 소중한 정보들!</h4>
+        <hr style="border: 1px solid rgb(65,180,123); margin-top:2px;">
+    </div>
+    
+    <div id = "pack-container" class="row">
+    <% if !current_user.nil? %>
+      <% postlist = (Postuserrel.where.not(melon: 0).where("user_id=? and mango = ?",current_user.id, 0).order(melon: :desc).pluck(:post_id))%>
+    <% else %>
+      <% postlist = Post.pluck(:id) %>
+    <% end %>
+    <% postlist.each do |x| %>
+        <% post = Post.find(x) %>
+        <%= render partial: '/brown/inner_content', locals: {post: post} %>
+      <% end %>
+    
+    </div>
+        <!--멜론 컨텐츠 제목 -->
+    <div id = "contents-head" style="text-align:center">
+            <br>
+        <div class="green contents-headline-block" style="color:white" > 전부 다~~ </div> 
+        <h4 style="display:inline-block;">  개발 테스트 전용 공간</h4>
+        <hr style="border: 1px solid rgb(65,180,123); margin-top:2px;">
+        <% postlist = Post.all %>
+        <% postlist.each do |post| %>
+          <%= render partial: '/brown/inner_content', locals: {post: post} %>
+        <% end %>  
+    </div>
+    
+    
+    
+</div> <!--컨텐츠 끝-->

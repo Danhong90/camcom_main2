@@ -1,0 +1,41 @@
+<% post.each do |post| %>
+
+<div class="modal fade" id="post<%=post.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="postmodal_title" style="text-align:center;"><%= post.post_company%> <%= post.post_subject%></h4>
+      </div>
+      <div class="modal-body">
+        
+          <div class="form-group">
+            <img src="<%= post.post_image%>" style="max-height:20vh; max-width:40vw; display:block; margin-left:auto; margin-right:auto;">
+          </div><hr>
+          <div class="form-group">
+            <span> <%= h(post.post_content).gsub( /\n/, '<br />').html_safe %>  </span> 
+          </div>
+          <hr>
+          <ul class="list-inline">
+                            <% if !post.posthashrels.nil? %> 
+                                <% post.posthashrels.each do |hash| %>
+                                <% if Userhashrel.where("user_id = ? and campushash_id = ?",current_user,hash.campushash_id).take.nil? %>
+                                    <li><a class="hash-button-small" name="<%=hash.campushash_id%>hash" id="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)"> #<%= Campushash.find(hash.campushash_id).hash_content %></a></li>
+                                <% elsif Userhashrel.where("user_id = ? and campushash_id = ?",current_user,hash.campushash_id).take.pick_type == 0 %>
+                                    <li><a class="hash-button-small-mango" name="<%=hash.campushash_id%>hash" id="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)"> #<%= Campushash.find(hash.campushash_id).hash_content %></a></li>
+                                <% else %>
+                                    <li><a class="hash-button-small-melon" name="<%=hash.campushash_id%>hash" id="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)"> #<%= Campushash.find(hash.campushash_id).hash_content %></a></li>
+                                <% end %>
+                               
+                                <% end %>
+                            <% end %>
+      </div>
+      <div class="modal-footer" style=" text-align:center;">
+        <i class="fa fa-thumb-tack font-light-black" style="padding-top:7px;" > 달력에 콕콕  </i>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

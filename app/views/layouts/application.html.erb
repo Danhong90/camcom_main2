@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>캠퍼스 컴퍼스 - 대학생활의 나침반</title>
+ 
+  
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <!--<link rel="stylesheet" href="assets/bootstrap.min.css">-->
+  
+  <!--fa 로 시작하는 icon들 쓰게 해주는 링크 주소는 여기 ~ http://fortawesome.github.io/Font-Awesome/get-started/-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!--자체 시트 css / javascrit-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+   <%= csrf_meta_tags %>
+  
+  
+  
+</head>
+
+<!-- css가 잘못 적용되어서 조정용 임시 style -->
+<style>
+body.modal-open{
+  padding-right:0px!important;
+  overflow-y:auto;
+}
+</style>
+<body>
+
+<%= yield %>
+
+
+</body>
+</html>

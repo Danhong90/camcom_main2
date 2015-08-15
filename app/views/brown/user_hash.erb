@@ -1,0 +1,164 @@
+<!--탑 네비게이션 -->
+<%= render :partial => "/brown/top_nav" %>
+
+<style>
+div.modal-backdrop.in {
+  z-index:-1;
+ height:100%!important;   
+}
+</style>
+
+
+
+<!-- login modal content-->
+<%= render partial: "/brown/login_modal"%>
+
+
+<!--login end-->
+<!--바디-->
+<div id="whole-body">
+    <div id= "whole-body-contents" style="min-height:800px">
+        <!--타이틀/설명?-->
+        <div>
+            
+        </div>
+        <!--해시태그 추가제거하는곳-->
+        <div id="hash_input" class="container-fluid" style="padding-top:2%;">
+            <div class="row">
+                <!--해시태그 관리 좌즉 -->
+                <div class="col-md-7 col-xs-12 fruit-select" >
+                     
+                    <h4 style="padding-top:10px; padding-bottom:10px"> MY #해시태그 찾아보기 </h4>
+                    
+                    <div class="col-md-4 col-xs-12" style="padding-left:0px; padding-right:0px">
+                        
+                        <div class="input-group hash-input-group">
+                            <input type="text" class="form-control hash-add-form" style="border:solid 2px rgb(65,180,123);"  placeholder="#다음카카오" aria-describedby="basic-addon2">
+                            <span class="input-group-addon green" style="border:solid 2px rgb(65,180,123);" id="basic-addon2"><i class="fa fa-search font-white"></i></span>
+                        </div>
+                    </div> 
+                    
+                    <div class="col-md-8 col-xs-12 hash-add-category">
+                        <div class="btn-group">
+                            <div class="btn-group ">
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                기업  <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">IT 산업</a></li>
+                                <li><a href="#">제조업 </a></li>
+                                <li><a href="#">금융업 </a></li>
+                                <li><a href="#">마케팅 </a></li>
+                              </ul>
+                            </div>
+                            <button type="button" class="btn btn-default">분야</button>
+                            <button type="button" class="btn btn-default">인턴</button>
+                            <button type="button" class="btn btn-default">공모전</button>
+                            <button type="button" class="btn btn-default">대외활동</button>
+                        </div> 
+                   </div> 
+                               
+
+                    <div class="col-xs-12">
+              				<div class="login-hash-ranking list-inline" style="">
+				            <hr>
+                            <% @pophash.each do |hash| %>
+                                
+                                <% picktype = Userhashrel.where("user_id=? and campushash_id=?", current_user.id, hash.campushash_id).take %>
+                                <% if picktype.nil? %>
+                                    <% picktype = 2 %>
+                                <% else %>
+                                    <% picktype = picktype.pick_type%>
+                                <% end %>
+                                <% if picktype == 0 %>
+                                <a class="hash-button-small-mango" name="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)" id="selected"> <%= Campushash.find(hash.campushash_id).hash_content%>  </a>
+                                <% elsif picktype ==1 %>
+                                <a class="hash-button-small-melon" name="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)" id="selected"> <%= Campushash.find(hash.campushash_id).hash_content%>  </a>
+                                <% else %>
+                                <a class="hash-button-small" name="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)" id="selected"> <%= Campushash.find(hash.campushash_id).hash_content%>  </a>
+                                <% end %>
+                            <% end %>
+    				    </div>
+                    </div>
+                </div> <!--해시태그 관리 좌측 끝-->
+                
+                <!--해시태그 관리 우측 -->
+                <div class="col-md-4 col-xs-12" >
+                    <div style="height:600px">
+                        <div class="col-xs-12 fruit-selected">
+                            <h4 class="font-yellow">당신이 선택한 #망고</h4>
+                            
+                            <p>망고로 선택한 해시태그는 새로운 컨탠츠 등록시 메일로 알려드립니다. </p>
+                            
+                            <div class="fruit-seleted-hash">
+                                <% @usermango %>
+                                <% @usermango.each do |x| %>
+                                <a class="hash-button-small-mango" name="<%=x%>hash" onclick="pickhash(<%=x%>)" id="selected"> #<%= Campushash.find(x).hash_content %>  </a>
+                                <% end %>
+                            </div>
+                            
+                        </div>
+                        <div class="col-xs-12 fruit-selected" >
+                            
+                            <h4 class="font-green">당신이 선택한 #멜론</h4>
+                            <p>푸시 알림까지는 아니지만 들어오면 한눈에 모아보고 싶은 해시태그들입니다.</p>
+                            
+                            <div class="fruit-selected-hash">
+                                <% @usermelon %>
+                                <% @usermelon.each do |x| %>
+                                <a class="hash-button-small-melon" name="<%=x%>hash" onclick="pickhash(<%=x%>)" id="selected"> #<%= Campushash.find(x).hash_content %>  </a>
+                                <% end %>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 fruit-selected">
+             				 <div class="frit-selected-hash" style="">
+    				            <h4> 실시간 인기 해시태그 </h4>
+                                <% @pophash.each do |hash| %>
+                                    <% picktype = Userhashrel.where("user_id=? and campushash_id=?", current_user.id, hash.campushash_id).take %>
+                                    <% if picktype.nil? %>
+                                        <% picktype = 2 %>
+                                    <% else %>
+                                        <% picktype = picktype.pick_type%>
+                                    <% end %>
+                                    <% if picktype == 0 %>
+                                    <a class="hash-button-small-mango" name="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)" id="selected"> <%= Campushash.find(hash.campushash_id).hash_content%>  </a>
+                                    <% elsif picktype ==1 %>
+                                    <a class="hash-button-small-melon" name="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)" id="selected"> <%= Campushash.find(hash.campushash_id).hash_content%>  </a>
+                                    <% else %>
+                                    <a class="hash-button-small" name="<%=hash.campushash_id%>hash" onclick="pickhash(<%=hash.campushash_id%>)" id="selected"> <%= Campushash.find(hash.campushash_id).hash_content%>  </a>
+                                    <% end %>
+                                <% end %>
+    				        </div>
+    			        </div><!--실시간 인기 해시태그 끝-->
+    			        <div class="col-xs-12 fruit-selected">
+             			    <div class="frit-selected-hash" style="">
+    				            <h4> 추천 해시태그 </h4>
+    				            
+                                <% @curation.shift(5).each do |x| %>  <!--shift의 갯수로 추천 갯수를 조정할 수 있습니다-->
+                                    <% hash = Campushash.find(x) %>
+                                    <% picktype = Userhashrel.where("user_id=? and campushash_id=?", current_user.id, x).take %>
+                                    <% if picktype.nil? %>
+                                        <% picktype = 2 %>
+                                    <% else %>
+                                        <% picktype = picktype.pick_type%>
+                                    <% end %>
+                                    <% if picktype == 0 %>
+                                    <a class="hash-button-small-mango" name="<%=x%>hash" onclick="pickhash(<%=x%>)" id="selected"> <%= hash.hash_content%>  </a>
+                                    <% elsif picktype ==1 %>
+                                    <a class="hash-button-small-melon"  name="<%=x%>hash" onclick="pickhash(<%=x%>)" id="selected"> <%= hash.hash_content%>  </a>
+                                    <% else %>
+                                    <a class="hash-button-small"  name="<%=x%>hash" onclick="pickhash(<%=x%>)" id="selected"> <%= hash.hash_content%>  </a>
+                                    <% end %>
+                                <% end %>
+    				        </div>
+    			        </div><!--실시간 인기 해시태그 끝-->
+                    </div>
+                </div><!--해시태그 관리 우측 끝 -->
+            </div><!--해시태그 관리 끝-->
+        </div>
+    </div> <!--whole-body-contents 끝-->
+</div> <!--whole-body 끝 -->
+
+<!--fotter-->
+<%= render :partial => "/brown/footer" %>

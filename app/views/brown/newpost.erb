@@ -1,0 +1,20 @@
+<a href=/brown/post_list.erb>게시물 삭제페이지 이동 </a><br>
+<a href=/brown/hash_list.erb>해쉬 태그 삭제 페이지 이동</a>
+
+<%= form_tag :action => "post_new" do %>
+    <%= label_tag(:imageurl, "썸네일 이미지 URL을 입력하세요") %><br>
+    <%= text_field_tag(:imageurl) %><br>
+    <%= label_tag(:category, "카테고리 입력") %><br>
+    <%= text_field_tag(:category) %><br>
+    <%= label_tag(:company, "주관하는 회사 입력") %><br>
+    <%= text_field_tag(:company) %><br>
+    <%= label_tag(:subject, "주제 및 직무")%> <br>
+    <%= text_field_tag(:subject) %><br>
+    <%= label_tag(:deadline, "기간(만료일)") %><br>
+    <%= date_field(:deadline, :date) %><br>
+    <%= label_tag(:content, "세부 내용") %><br>
+    <%= label_tag(:hash, "해쉬태그를 입력하세요, 구분은 띄어쓰기로! 앞에 #붙이지 마세요!!!") %><br>
+    <%= text_field_tag(:hash) %><br>
+    <%= text_area_tag(:content, "공모전/인턴 세부 내용 입력", size: "40x10") %> <br>
+    <%= submit_tag("Post") %>
+<% end %>    

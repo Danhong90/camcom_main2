@@ -1,0 +1,37 @@
+
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  
+  
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="backg">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">LOG IN</h4>
+      </div>
+      <div class="modal-body" style="height:80">
+        
+          <!--<form action=/wall/login method=post id=loginform>-->
+          
+
+              <div class="form-group">
+                 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+              </div>
+             
+          
+
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+<script>
+if (window.location.hash == "#login") {
+     $("#login").modal('show');
+}
+
+
+</script>
+
+<!--login end-->
