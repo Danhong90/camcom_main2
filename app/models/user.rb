@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:facebook]
-  
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+
+  has_many :identities
   has_many :postuserrels, dependent: :destroy
   has_many :userhashrels, dependent: :destroy
   has_many :posts, :through => :postuserrels
@@ -24,6 +25,7 @@ class User < ActiveRecord::Base
     end
   end
   
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -33,3 +35,4 @@ class User < ActiveRecord::Base
   end
   
 end
+

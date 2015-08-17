@@ -21,11 +21,9 @@ require_relative 'support_sort' #sort_by_frequency 메소드를 받습니다
           @usermelon << usershash.campushash_id
         end
      end
-      
-    #  mangolist = Postuserrel.order(mango: :desc).pluck(:post_id)
-    
+          
     end
-    @topfive = Userhashrel.select('campushash_id, count(campushash_id) as frequency').order('frequency desc').group('campushash_id').take(7) #선호해쉬태그 노출
+    @topfive = Userhashrel.select('campushash_id, count(campushash_id) as frequency').order('frequency desc').group('campushash_id').take(10) #선호해쉬태그 노출
     
   end
   
@@ -79,6 +77,8 @@ require_relative 'support_sort' #sort_by_frequency 메소드를 받습니다
     hashinput = params[:id].to_i
     pick = Userhashrel.where("user_id= ? and campushash_id= ?", current_user.id, hashinput).take
         
+    
+    #post의 우선순위를 위한 mango melon 점수 부여    
     if pick.nil?
     
       picked_hash = Userhashrel.new
@@ -97,7 +97,7 @@ require_relative 'support_sort' #sort_by_frequency 메소드를 받습니다
 
     end
     
-    #post의 우선순위를 위한 mango melon 점수 부여
+    
     posthasit = Posthashrel.where("campushash_id=?", hashinput).pluck(:post_id) #해당 해쉬를 가진 post들을 모읍니다
     userhasmango = Userhashrel.where("user_id=? and pick_type = ?", current_user.id, 0).pluck(:campushash_id) # 유저가 가진 망고해쉬태그값들을 모읍니다
     userhasmelon = Userhashrel.where("user_id=? and pick_type = ?", current_user.id, 1).pluck(:campushash_id) # 유저가 가진 메론해쉬태그값들을 모읍니다
@@ -119,20 +119,21 @@ require_relative 'support_sort' #sort_by_frequency 메소드를 받습니다
   end
   
   def user_hash 
-    if !current_user.nil?
-      userhash = Userhashrel.where("user_id = ?", current_user.id)
-      @usermango = []
-      @usermelon = []
-      userhash.each do |usershash|
-        if usershash.pick_type == 0
-          @usermango << usershash.campushash_id
-        elsif usershash.pick_type == 1
-          @usermelon << usershash.campushash_id
-        end
-      end  
-    end
+    @hash = Campushash.all
+    userhash = Userhashrel.where("user_id = ?", current_user.id)
+    @usermango = []
+    @usermelon = []
+    userhash.each do |usershash|
+      if usershash.pick_type == 0
+        @usermango << usershash.campushash_id
+      elsif usershash.pick_type == 1
+        @usermelon << usershash.campushash_id
+      end
+    end  
+  
   
   @pophash = Userhashrel.select('campushash_id, count(campushash_id) as frequency').order('frequency desc').group('campushash_id').take(10) #선호해쉬태그 노출
+  
   #큐레이션시작
   curation = []
   
@@ -144,9 +145,8 @@ require_relative 'support_sort' #sort_by_frequency 메소드를 받습니다
   
   
   
-  @curation = curation.sort_by_frequency.reverse.uniq
-  @curation.shift(userhash.size)
-    
+  @curation = curation.sort_by_frequency.reverse.uniq-current_user.userhashrels.pluck(:campushash_id)
+  
   
   end
   
@@ -161,6 +161,34 @@ require_relative 'support_sort' #sort_by_frequency 메소드를 받습니다
     
   end
   
+  def tagpost
+    post_id = params[:id].to_i
+    tag_type = params[:tagtype].to_i
+    pickpost = Postuserrel.where("post_id=? and user_id=?",post_id,current_user).take
+    if pickpost.nil?
+      pickpost = Postuserrel.new
+    end
+    pickpost.user_id = current_user.id
+    pickpost.post_id = post_id
+    pickpost.tag = tag_type
+    pickpost.save
+    redirect_to :back
+  end
   
+  
+  def calendar
+    @picked_post=current_user.postuserrels.where("tag=?",2)
+    
+    
+  end
+  
+  def hash_update
+    hash_id = params[:id].to_i
+    hash_cate = params[:cates]
+    p = Campushash.find(hash_id)
+    p.hash_category = hash_cate
+    p.save
+    redirect_to :back
+  end
   
 end

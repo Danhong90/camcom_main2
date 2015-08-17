@@ -5,20 +5,27 @@
         <div class="container-fluid nav-container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand page-scroll" href="/">CAMPUS MELON</a>
-                <a class="navbar-home" href="/"><img style="width:36px; padding-left:5px; margin-top:-3px" src="assets/white_logo_small.png"> </a></a>
+                <a class="navbar-brand page-scroll" href="/"><img src="/assets/text-logo-1-white.png" style="width:200px"></a>
+                <a class="navbar-home" href="/"><img style="width:36px; padding-left:5px; margin-top:-3px" src="http://camcom-0-danhong90.c9.io/assets/white_logo_small.png"> </a></a>
                 <form class="navbar-form navbar-left" action="/brown/search" method="POST" role="search">
                     <div class="form-group">
                       <input id="small-input" type="text" class="form-control" placeholder="# 하나로 [ 커리어 액티비티 ]  모아보자! ">
                     </div>
                     <button type="submit" class="btn same-row yellow hash-button" ><span style="font-size:20px; font-weight:700;">#</span></button>
                 </form>
-                <button id="small-menu" type="button" class="navbar-toggle collapsed same-row" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                    <span class="hamb-top"></span>
+        			<span class="hamb-middle"></span>
+    				<span class="hamb-bottom"></span>
                 </button>
+                
+                
+                <!--<button id="small-menu" type="button" class="navbar-toggle collapsed same-row" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
+                <!--    <span class="sr-only">Toggle navigation</span>-->
+                <!--    <span class="icon-bar"></span>-->
+                <!--    <span class="icon-bar"></span>-->
+                <!--    <span class="icon-bar"></span>-->
+                <!--</button>-->
             </div>
             
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,6 +57,7 @@
                 </ul>
                 <% end %>
             </div>
+                
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -60,6 +68,6 @@
 </div>
 <!--여백의 미-->
 
-<div style="height:45px"></div>        
+<div style="height:43px"></div>        
     
 

@@ -1,3 +1,13 @@
+<% if current_user.nil? %>
+<script>                  
+$(document).ready(function () {
+
+    $("#login").modal({backdrop: 'static', keyboard: false});
+
+});
+
+</script>
+<% end %>
 <!--탑 네비게이션 -->
 <%= render :partial => "/brown/top_nav" %>
 
@@ -8,10 +18,6 @@ div.modal-backdrop.in {
 }
 </style>
 
-
-
-<!-- login modal content-->
-<%= render partial: "/brown/login_modal"%>
 
 
 <!--login end-->

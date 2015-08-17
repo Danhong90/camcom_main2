@@ -24,11 +24,40 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-  
+  <link rel='stylesheet' href='/fullcalendar/fullcalendar.css' />
+ 
+  <script src='/lib/moment.min.js'></script>
+  <script src='/fullcalendar/fullcalendar.js'></script>
+  <script type='text/javascript' src='/fullcalendar/gcal.js'></script>
    <%= csrf_meta_tags %>
   
   
   
+  <%= render partial: "/brown/login_modal"%>
+
+<!-- 로그인이 안돼있으면 로그인창 강제 -->
+
+<% if current_user.nil? %>
+<script>                  
+$(document).ready(function () {
+
+    $("#login").modal({backdrop: 'static', keyboard: false});
+
+});
+
+</script>
+<% elsif current_user.userhashrels.empty? %>
+<%= render partial: "/brown/select_hash", locals:{hash:@hash}%>
+
+<script>
+$(document).ready(function () {
+
+    $("#nohash").modal({backdrop: 'static', keyboard: false});
+
+});
+</script>
+
+<% end %>
 </head>
 
 <!-- css가 잘못 적용되어서 조정용 임시 style -->

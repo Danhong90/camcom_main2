@@ -3,7 +3,10 @@
 <br><br><hr>
 
 <% @hashs.each do |hash| %>
-<h5><%=hash.id%>//#<%=hash.hash_content%>// 관련된 Post_id  <%= hash.posthashrels.pluck(:post_id).inspect %><a href="/brown/hash_list/<%=hash.id%>" onclick="return confirm('Are you sure?')">삭제</a>
+<form action="/brown/hash_update/<%=hash.id%>" method=post>
+<h5><%=hash.id%>//#<%=hash.hash_content%>//카테고리:<%=hash.hash_category%>// 관련된 Post_id  <%= hash.posthashrels.pluck(:post_id).inspect %>
+<input type=text name="cates" value=<%=hash.hash_category%>><input type=submit value=카테고리수정/생성></form>
+<a href="/brown/hash_list/<%=hash.id%>" onclick="return confirm('Are you sure?')">삭제</a>
 </h5>
 <hr>
 <% end %>

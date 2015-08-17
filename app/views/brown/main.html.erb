@@ -1,25 +1,10 @@
-
-<!--탑 네비게이션 -->
-<%= render :partial => "/brown/top_nav" %>
-
-<!--사이즈 메뉴 -->
-<%= render :partial => "/brown/side_menu" %>
-
-
-
-<!-- login modal content-->
-<%= render partial: "/brown/login_modal"%>
-
-<!-- 로그인이 안돼있으면 로그인창 강제 -->
-
 <% if current_user.nil? %>
-<script>
-if (isMobile === true){                        //모바일인지 확인
+<script>                  
 $(document).ready(function () {
 
     $("#login").modal({backdrop: 'static', keyboard: false});
 
-});}
+});
 
 </script>
 <% elsif current_user.userhashrels.empty? %>
@@ -34,7 +19,20 @@ $(document).ready(function () {
 </script>
 
 <% end %>
-<%= render partial: "/brown/signup" %>
+<!--탑 네비게이션 -->
+<%= render :partial => "/brown/top_nav" %>
+
+<!--사이즈 메뉴 -->
+<%= render :partial => "/brown/side_menu" %>
+
+
+
+<!-- login modal content-->
+<%= render partial: "/brown/login_modal"%>
+
+<!-- 로그인이 안돼있으면 로그인창 강제 -->
+
+
 
 
 

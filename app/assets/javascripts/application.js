@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 var isMobile = false; //initiate as false
 // device detection
 if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -23,32 +24,51 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 function pickhash(id){
     var hash_id = id;
    $.ajax({
-      url: "/brown/pickhash?id="+hash_id+"&postid="
+      url: "/brown/pickhash?id="+hash_id
      
       
     });
-            
-if (document.getElementsByName(id+"hash")[0].className === "hash-button-small-mango"){
-    for(i=0; i<document.getElementsByName(id+"hash").length; i++){
-    document.getElementsByName(id+"hash")[i].className = "hash-button-small-melon";
+                
+    if (document.getElementsByName(id+"hash")[0].className === "hash-button-small-mango"){
+        for(i=0; i<document.getElementsByName(id+"hash").length; i++){
+        document.getElementsByName(id+"hash")[i].className = "hash-button-small-melon";
+        }
     }
-}
-else if (document.getElementsByName(id+"hash")[0].className === "hash-button-small"){
-    for(i=0; i<document.getElementsByName(id+"hash").length; i++){
-    document.getElementsByName(id+"hash")[i].className = "hash-button-small-mango";
+    else if (document.getElementsByName(id+"hash")[0].className === "hash-button-small"){
+        for(i=0; i<document.getElementsByName(id+"hash").length; i++){
+        document.getElementsByName(id+"hash")[i].className = "hash-button-small-mango";
+        }
     }
-}
-else if (document.getElementsByName(id+"hash")[0].className === "hash-button-small-melon"){
-   for(var i=0; i<document.getElementsByName(id+"hash").length; i++){
-    document.getElementsByName(id+"hash")[i].className = "hash-button-small";
+    else if (document.getElementsByName(id+"hash")[0].className === "hash-button-small-melon"){
+       for(var i=0; i<document.getElementsByName(id+"hash").length; i++){
+        document.getElementsByName(id+"hash")[i].className = "hash-button-small";
+        }
     }
+
 }
 
+function pickpost(id, tagtype){
+    var post_id = id;
+    var tag_type = tagtype;
+    $.ajax({
+      url: "/brown/tagpost?id="+post_id+"&tagtype="+tag_type
+     
+      
+    });
     
+    if (document.getElementsByName(id+"post")[0].innerHTML === " 달력에 콕콕  "){
+         for(i=0; i<document.getElementsByName(id+"post").length; i++){
+        document.getElementsByName(id+"post")[i].innerHTML = " 달력에 표시되었어요";
+        }
+    }
+    else if (document.getElementsByName(id+"post")[0].innerHTML === " 달력에 표시되었어요"){
+         for(i=0; i<document.getElementsByName(id+"post").length; i++){
+        document.getElementsByName(id+"post")[i].innerHTML = " 달력에 콕콕  ";
+        }
+    }
    
 
 
 }
-
 // 사이드메뉴 
    

@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
+gem 'nifty-generators'
+gem 'google-api-client', :require => 'google/api_client'
+gem 'hashie'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

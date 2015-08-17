@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="assets/bg.png" class="carousel-size">
+                            <img src="assets/Slide1.jpg" class="carousel-size">
                             <div class="carousel-caption">
                                 <h2 class="section-heading">화이팅 제몽소!</h2>
                                 <hr class="light">
@@ -107,7 +107,7 @@
                                 <% end %>
                                
                             <% end %>
-                        </ul>
+                        
 				    </div>
 				    
 				</div>    			
@@ -119,38 +119,50 @@
         <% else %> 
         
         <!----로그인 전 >-->
-        <div class="col-sm-4"  id="login-dp"  >
-            <div class="row" style=>
-    			<div class="col-xs-12" style="padding-left:40px; padding-right:40px">
-    				<div class="social-buttons">
-    					<a href="/users/auth/facebook" class="btn btn-fb" style="width: 100%;"><i class="fa fa-facebook"></i> 페이스북으로 로그인하기</a>
+        
+        <div class="col-sm-4" style="padding-left:0px; padding-right:0px; height:300px; background-color:transparent; text-align:center">
+			<div style="width:90%; margin-left:10%">
+				<div style="width: 100%; height:120px; background-color:rgb(255,255,255); border-radius:2px; border: solid 1px rgb(226,228,232); ">
+    				
+    				<div class="row"  style="height:60px; padding-top:15px; margin:0px; border-bottom: solid 1px rgb(226,228,232);  " >    
+                        <div class="col-xs-4" style="padding-right:0px" >
+                            <p style="font-weight:600">MY <br> 해시태그</p>
+                        </div>
+    				    <div class="col-xs-4 " style="margin-bottom:5px">
+                            <img src="assets/mango.png" style="width: 32px; padding-bottom: 4px "> 0 개   
+    				    </div>
+    				    <div class="col-xs-4" style="padding-left:0px">
+                            <img src="assets/melon.png" style="width: 38px; padding-top:1px; padding-right:4px; padding-bottom: 4px "> 0 개    
+    				    </div>
     				</div>
-                    
-    				 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-    					<div class="form-group">
-    						 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-    						 <input type="email" class="form-control" style="width: 100%;" id="exampleInputEmail2" placeholder="Email 주소" required>
-    					</div>
-    					<div class="form-group">
-    						 <label class="sr-only" for="exampleInputPassword2">Password</label>
-    						 <input type="password" class="form-control"  style="width: 100%;" id="exampleInputPassword2" placeholder="비밀번호" required>
-                             <div class="help-block text-right"><a href="">비밀번호를 잊으셨나요?</a></div>
-    					</div>
-    					<div class="form-group">
-    						 <button type="submit" class="btn btn-primary btn-block" >Email 로그인 하기</button>
-    					</div>
-    					<div class="checkbox">
-    						 <label>
-    						 <input type="checkbox"> 로그인 유지하기
-    						 </label>
-    					</div>
-    				 </form>
-    			</div>
-    			<div class="bottom text-center">
-    				아직 가입하지 않으셨나요? <a href="#"><b>가입하기</b></a>
-    			</div>
-        	 </div>
+    				
+    				
+    				<div style="padding-top:10px; padding-bottom:10px;">
+    				    <button class="btn btn-default yellow" style="margin-left:auto; margin-right:auto"><strong>친구 초대하고 망고 받기 </strong></button>
+    				</div>
+				</div>
+				<div style="height: 170px; margin-top:10px; background-color:rgb(255,255,255); border-radius:2px; border: solid 1px rgb(226,228,232); ">
+    				<div style="height:37px; border-bottom: solid 1px rgb(226,228,232);">    
+    				    <p style="font-weight:27px; font-weight:700; padding-top:12px">실시간 인기 #해시태그</p>
+    				</div>
+    				   
+				    <div class="login-hash-ranking list-inline" style="">
+				        <a class="hash-button-small-mango" id="selected"> #다음카카오 </a>
+				        <a class="hash-button-small-melon" id="selected"> #네이버 </a>
+				        <a class="hash-button-small-mango" id="selected"> #구글코리아 </a>
+				        <a class="hash-button-small" id="selected"> #삼성전자 </a>
+				        <a class="hash-button-small-melon" id="selected"> #로스쿨 </a>
+				        <a class="hash-button-small" id="selected"> #빅데이터 </a>
+				        <a class="hash-button-small" id="selected"> #UCC</a>
+				        <a class="hash-button-small-melon" id="selected"> #해외 관광 </a>
+				        <a class="hash-button-small-melon" id="selected"> #LINE </a>
+				    </div>
+				    
+				</div>    			
+			</div>
         </div>
+        
+
         
         <% end %>
         

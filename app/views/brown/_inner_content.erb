@@ -15,9 +15,14 @@ $('#myModal').on('shown.bs.modal', function () {
                     <p><%= post.post_subject %></p> 
                     <ul class="list-inline pack-icon">
                         <li><i class="fa fa-twitter"></i><%= post.post_category %></li>
-                        <li><i class="fa fa-calendar"><%= post.post_deadline %></i>
+                        <% dday = post.post_deadline-DateTime.now.to_date %>
+                        <% if dday > 0 %>
+                        <li><i class="fa fa-calendar"> D-<%= dday.to_i %></i>
+                        <% else %>
+                        <li><i class="fa fa-calendar"> <%= dday.to_i.abs %>일 지남</i>
+                        <% end %>
                         </li>
-                        <li><i class="fa fa-heart">관심 X 명</i>
+                        <li><i class="fa fa-heart">관심 <%= post.postuserrels.where("tag=?",2).size%> 명</i>
                         </li>
                     </ul>
                 </div>
@@ -54,8 +59,16 @@ $('#myModal').on('shown.bs.modal', function () {
                 
                 
                 <div class="pack-bottom-area ">
-                    <a href="#" style="margin-left:10px; margin-right:10px">
-                        <i class="fa fa-thumb-tack font-bright-black" style="padding-top:7px; font-weight:500" > 달력에 콕콕  </i> 
+                    <a onclick="pickpost(<%=post.id%>, 2)" style="margin-left:10px; margin-right:10px">
+                        <% if post.postuserrels.where("user_id=?",current_user).take.nil? %>
+                        <i class="fa fa-thumb-tack font-bright-black" name="<%=post.id%>post" style="padding-top:7px; font-weight:500" > 달력에 콕콕  </i>
+                        <% else %>
+                            <% if post.postuserrels.where("user_id=?",current_user).take.tag ==  2%>
+                            <i class="fa fa-thumb-tack font-bright-black" name="<%=post.id%>post" style="padding-top:7px; font-weight:500" > 달력에 표시되었어요</i>
+                            <% else%>
+                            <i class="fa fa-thumb-tack font-bright-black" name="<%=post.id%>post" style="padding-top:7px; font-weight:500" > 달력에 콕콕  </i>
+                            <% end %>
+                        <% end %>
                     </a>
                     <a href="#" style="margin-left:10px; margin-right:10px">
                         <i class="fa fa-trash-o font-bright-black" style="padding-top:7px; font-weight:500" > 그만보기  </i> 

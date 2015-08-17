@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812175823) do
+ActiveRecord::Schema.define(version: 20150815190819) do
 
   create_table "campushashes", force: :cascade do |t|
     t.string   "hash_content"
     t.string   "hash_category"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.text     "auth_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posthashrels", force: :cascade do |t|

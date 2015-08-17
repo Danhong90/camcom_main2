@@ -1,51 +1,87 @@
+<div id="wrapper">
+    <div class="overlay"></div>
 
-
-    <!--<div id="wrapper">-->
+    <!-- /#sidebar-wrapper -->
 
         <!-- Sidebar -->
-    <!--    <div id="sidebar-wrapper">-->
-    <!--        <ul class="sidebar-nav">-->
-    <!--            <li class="sidebar-brand">-->
-    <!--                <a href="#">-->
-    <!--                    Start Bootstrap-->
-    <!--                </a>-->
-                    
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">Dashboard</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">Shortcuts</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">Overview</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">Events</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">About</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">Services</a>-->
-    <!--            </li>-->
-    <!--            <li>-->
-    <!--                <a href="#">Contact</a>-->
-    <!--            </li>-->
-    <!--        </ul>-->
-    <!--    </div>-->
-        <!-- /#sidebar-wrapper -->
-    <!--    <div id="page-content-wrapper">-->
-    <!--        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
-    <!--    </div>-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                   Brand
+                </a>
+            </li>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">망고</a>
+            </li>
+            
+            <li>
+                <a href="#">멜론</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">공모전 <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Dropdown heading</li>
+                <li><a href="#">공모전</a></li>
+                <li><a href="#">인턴</a></li>
+                <li><a href="#">대외활동</a></li>
+                <li><a href="#">강연</a></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </li>
+            <li>
+                <a href="#">인턴</a>
+            </li>
+            <li>
+                <a href="#">대외활동</a>
+            </li>
+            <li>
+                <a href="https://twitter.com/maridlcrmn">문의하기</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /#page-content-wrapper -->
 
-    <!--</div>-->
-        <!-- Page Content -->
-        <!-- /#page-content-wrapper -->
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+
+<!-- /#wrapper -->
+</div>
+
+<!-- Page Content -->
+    
+
+
+
+<!--Menu Toggle Script -->
+<script>
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
     });
-    </script>
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+});
+</script>

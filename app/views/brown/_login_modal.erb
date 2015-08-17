@@ -1,29 +1,38 @@
 
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  
-  
-  <div class="modal-dialog" role="document">
-    <div class="modal-content" style="backg">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">LOG IN</h4>
-      </div>
-      <div class="modal-body" style="height:80">
-        
-          <!--<form action=/wall/login method=post id=loginform>-->
-          
-
-              <div class="form-group">
-                 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-              </div>
-             
-          
-
-      </div>
-    
-      
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id=loginmodalcontent >
+            <div class="modal-body" id=loginmodalbody>
+                <div class="modal-top" id=loginmodaltop>
+                    <div class="modal-logo col-xs-12" > 
+                        <img class="modal-logo-pic"  src="/assets/glg.png">
+                        <img class="modal-logo-text" src="/assets/text-logo-2.png">
+                    </div>
+                    
+                    
+                    <div class="modal-text col-xs-12" > 
+                    <br>
+                        <img src="/assets/modal_message.png" style="width:500px;padding-buttom:10px">
+                        <br>
+                        <h5 class="modal-text1"> 공모전, 인턴, 대외활동, 취준정보 </h5>
+                        <h5 class="modal-text1"><span class="modal-text-text"> #해시태그</span>로 모아보고 알림받자!</h5>
+                    </div>
+                </div>
+                
+                <div class="modal-bottom col-sm-6 col-sm-offset-3 col-xs-12 col-xs-offet-1"  style="padding-left:40px; padding-right:40px">
+    	            <div class="social-buttons">
+    		            <a href="/users/auth/facebook" class="btn btn-fb" style="width: 100%;"><i class="fa fa-facebook"></i> 페이스북으로 로그인</a>
+    		        </div>
+    		        <br>
+    		        <div class="social-buttons">
+				        <a href="/users/auth/google_oauth2" class="btn btn-google" style="width: 100%;" ><i class="fa fa-google"></i> 구글로 로그인</a>
+		            </div>
+		        </div>
+		        <!--로그인 버튼-->
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <script>
